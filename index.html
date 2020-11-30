@@ -4,12 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        textarea{
+            width: 80%;
+            height: 10vh;
+            display: block;
+            margin: 1rem;
+
+        }
+
+        #output{
+            border: 1px solid black;
+            height: 10vh;
+            width: 80%;
+            margin: 1rem;
+            padding: 1rem;
+        }
+        
+    </style>
 </head>
 <body>
     <h1>Banana</h1>
 
-    <textarea name="" id="txt-input" cols="30" rows="10" placeholder="Put your sentence here which you want to translate to banana"></textarea>
+    <textarea name="" id="txt-input" cols="30" rows="10" placeholder="Put your sentence here which you want to translate to banana" ></textarea>
+
+    <br>
+
     <button id="btn-translate">Translate</button>
+    
+    <h5>Output will come here 👇</h5>
+    <!-- Emjopedia -->
+
+    <div id="output"></div>
+
     <script src="app.js" type="text/javascript"></script>
 </body> 
 </html>
