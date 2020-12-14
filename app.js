@@ -1,41 +1,44 @@
-// alert("wakee up")
-// var a = prompt("Give your name?")
-// console.log("Welcome "+a);
-// console.log("shrey is here")
+
+var btnTranslate = document.querySelector("#btn-translate")
+
+var textInput = document.querySelector("#txt-input");
+
+var textOutput = document.querySelector("#txt-output");
 
 
- var btnTranslate = document.querySelector("#btn-translate")
+var serverURL = "https://api.funtranslations.com/translate/minion.json"
+//var serverURL ="https://api.funtranslations.com/translate/valspeak.json"
 
- var textInput = document.querySelector("#txt-input");
+//Constructtheurl
 
- var textOutput = document.querySelector("#output");
+function getTranslationURL(input) {
+    return serverURL + "?" + "text" + input
+}
 
- 
-// btnTranslate.addEventListener("click",function clickEventHandler() {
-//     //console.log('Button is Clicked!')
-// })
-
-// function clickEventHandler() {
-//     console.log("Clicked!")
-
-// }
-
-//console.log(textInput);
-
-//console.log(textOutput);
+function errorHandler(error) {
+    console.log("error occured", error);
+    alert("something wrong with server! try again after some time")
 
 
-btnTranslate.addEventListener("click",function clickhandler(){
-        console.log("Clicked");
-        console.log("Your Input:",textInput.value)
-        textOutput.innerHTML="IN BANANA LANGUAGE :  " +textInput.value;
-  
-})
+    function clickhandler() {
+
+        //taking input
+        var inputext = textInput.value;
 
 
+        //    if(inputext.length === 0){
+        //        alert("YOU NEED TO ENTER SOME TEXT")
+        //    }
 
+        fetch(getTranslationURL(inputext))
+            .then(response => response.json())
+            .then(json => {
+                var TranslatedText = json.contents.translated;
+                textOutput.innerText = TranslatedText;
+            })
 
-// 1)document.querySelector("textarea")
-// 2)document.querySelector(".btn-primary")
-// 3)document.querySelector("#input-btn")
-// 4)document.querySelector("input[name ='translator']")
+            .catch(errorHandler)
+
+    }
+
+    btnTranslate.addEventListener("click", clickhandler())
