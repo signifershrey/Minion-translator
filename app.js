@@ -13,21 +13,24 @@ function errorHandler(error) {
     console.log("error occured", error);
     alert("something wrong with server! try again after some time")
 }
-function clickhandler() {
+    
+
+btnTranslate.addEventListener("click", function clickEventhandler() {
 
     //taking input
     var inputext = textIn.value;
-    var outputText ='';
 
+    //calling for processing
     fetch(getTranslationURL(inputext))
         .then(response => response.json())
         .then(json => {
-            outputText = json.contents.translated;
-            textOut.value = outputText;
+            // outputText = json.contents.translated;
+            // textOut.value = outputText;
+            var translatedText = json.contents.translated;
+        textOut.innerText = translatedText// output
         })
 
         .catch(errorHandler)
 
-}
 
-btnTranslate.addEventListener("click", clickhandler)
+})
