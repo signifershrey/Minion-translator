@@ -8,11 +8,11 @@
 }
 
 body {
-  font-family: 'sans';
+  font-family: 'sans-serif';
   color: var(--secondary-color);
   box-sizing: border-box;
   margin: 0;
-  background-color: #646360;
+  background-color: #0f0e17;
 }
 
 .navigation {
@@ -55,6 +55,7 @@ button {
 h5{
   font-size: 25px;
   text-align: center;
+  color:  #FCD34D;
 }
 
 button:hover {
